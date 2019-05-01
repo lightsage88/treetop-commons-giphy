@@ -7,3 +7,10 @@ it('renders without crashing', () => {
   const wrapper = shallow(<App/>);
   expect(wrapper.hasClass('App')).toEqual(true);
 });
+
+// it('onSubmitFromHeader calls searchGiphy', ()=>{
+//   const onSubmitFromHeaderMock = jest.fn();
+//   const wrapper = mount(<App />);
+//   wrapper.
+
+// })

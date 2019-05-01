@@ -1,21 +1,60 @@
 import React from 'react';
 import Header from './Components/Header.js';
 import ResultsPane from './Components/ResultsPane.js';
+import {giphyApiKey, giphySearchURL} from '../giphyAPIKey.js';
 import './App.scss';
  
 export default class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      "queryString": ''
+      "queryString": '',
+      "itemCount": 0
     }
   }
 
+  changeItemCount(number){
+    this.setState({
+      itemCount: number
+    });
+  }
+
+ 
+
+
+  searchGiphy(key) {
+    console.log(`Searching GIPHY with key: ${key}`);
+    return fetch(`${giphySearchURL}?api_key=${key}&q=${this.state.queryString}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept':'application/json'
+      }
+    }).then(response =>{
+      
+          response.json().then(json =>{
+            console.log(json);
+            this.changeItemCount(json.data.length);
+
+          })
+      
+      })
+      .catch(err=>{
+        console.error(err);
+      })
+
+  }
+
+
 
   render() {
+
     return (
       <div className="App">
-        <Header/>
+        <Header 
+          count={this.state.itemCount}
+          onChangeFromHeader={(val)=>this.setState({queryString:val})}
+          onSubmitFromHeader={()=>this.searchGiphy(giphyApiKey)}/>
         <ResultsPane/>
       </div>
     );
