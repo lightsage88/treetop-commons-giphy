@@ -1,15 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Header from './Components/Header.js';
+import ResultsPane from './Components/ResultsPane.js';
 import './App.scss';
  
-class App extends Component {
+export default class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      "queryString": ''
+    }
+  }
+
+
   render() {
     return (
       <div className="App">
         <Header/>
+        <ResultsPane/>
       </div>
     );
   }
 }
 
-export default App;
