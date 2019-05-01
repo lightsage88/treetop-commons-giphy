@@ -24,7 +24,7 @@ export default function SearchBar(props){
         <div className="searchBarDiv">
             <label htmlFor='searchBar'></label>
             <input type='text' onChange={(e)=> updateInputString(e.target.value)} name='searchBar'></input>
-            <button type='submit' onClick={()=> startSearching()}>SEARCH</button>
+            <button type='submit' onSubmit={()=>startSearching()} onClick={()=> startSearching()}>SEARCH</button>
         </div>
     )
 }

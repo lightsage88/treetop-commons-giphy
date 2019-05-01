@@ -4,7 +4,7 @@ export default function ResultsPane(props){
     const gifs = props.gifs.map((gifObject, index)=>
         <div key={index}>
             <h5>{gifObject.title}</h5>
-            <img src={gifObject.images.preview_gif} alt={gifObject.title}/>
+            <img src={gifObject.images.preview_gif.url} alt={gifObject.title}/>
         </div>
 
        );
