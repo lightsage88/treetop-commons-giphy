@@ -9,7 +9,8 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       "queryString": '',
-      "itemCount": 0
+      "itemCount": 0,
+      "data":[]
     }
   }
 
@@ -17,6 +18,16 @@ export default class App extends React.Component {
     this.setState({
       itemCount: number
     });
+  }
+
+  changeData(data){
+    this.setState({
+      data
+    });
+  }
+
+  populatePane(data){
+
   }
 
  
@@ -35,6 +46,7 @@ export default class App extends React.Component {
           response.json().then(json =>{
             console.log(json);
             this.changeItemCount(json.data.length);
+            this.changeData(json.data);
 
           })
       
@@ -48,14 +60,18 @@ export default class App extends React.Component {
 
 
   render() {
-
+    // const gifs = this.state.data.map((gif, index)=>{
+    //   <div index={index}>
+    //     <h5>{gif.title}</h5>
+    //   </div>
+    // });
     return (
       <div className="App">
         <Header 
           count={this.state.itemCount}
           onChangeFromHeader={(val)=>this.setState({queryString:val})}
           onSubmitFromHeader={()=>this.searchGiphy(giphyApiKey)}/>
-        <ResultsPane/>
+        <ResultsPane gifs={this.state.data}/>
       </div>
     );
   }
