@@ -3,7 +3,8 @@ import Header from './Components/Header.js';
 import ResultsPane from './Components/ResultsPane.js';
 import {giphyApiKey, giphySearchURL} from '../giphyAPIKey.js';
 import './App.scss';
- 
+import '../node_modules/nes.css/css/nes.css';
+
 export default class App extends React.Component {
   constructor(props){
     super(props);

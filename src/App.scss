@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+
 .App {
   text-align: center;
+  font-family: "Press Start 2P", sans-serif;
+
 }
 
 .App-logo {
@@ -16,9 +21,14 @@
  
 .App-intro {
   font-size: large;
+
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+
+

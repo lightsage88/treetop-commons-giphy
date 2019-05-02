@@ -1,0 +1,29 @@
+.resultsPaneDiv {
+    border: solid black 4px;
+    margin: auto 2rem;
+    
+    
+}
+
+.resultsPanelGrid {
+    @media (min-width: 768px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+.gridGif {
+    border: solid;
+    width: fit-content;
+    margin: 1rem auto;
+    img {
+        width: 15rem;
+    }
+    &:hover {
+        background: #007aaf;
+        h5 {
+            color: white;
+        }
+    }
+}
